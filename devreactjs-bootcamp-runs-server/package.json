@@ -1,0 +1,17 @@
+{
+  "name": "devreactjs-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.2.0",
+    "knex": "^0.14.4",
+    "sqlite3": "^4.1.1"
+  }
+}

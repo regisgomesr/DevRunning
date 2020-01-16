@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
 import './App.css'
 import axios from 'axios'
 import jwtDecode from 'jwt-decode'
 
-class App extends Component {
+import store from './redux'
+import { Provider } from 'react-redux'
 
+import Header from './Header'
+
+class App extends Component {
+/*
   async componentDidMount(){
     let token = localStorage.getItem('token')
     
@@ -28,25 +32,15 @@ class App extends Component {
     })
     console.log(user)
   }
-
+    */
   render(){
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+
+      <Provider store={store}>
+        <div className="App">
+          < Header />
+        </div>
+      </Provider>
     )
   }
 }

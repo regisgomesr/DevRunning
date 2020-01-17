@@ -9,7 +9,7 @@ export const {
     signinSuccess: ['user'],
     signinFailure: ['error'],
 
-    // Verificando se usuario ta logado ou nao
+    // Verificando se usuario esta autenticado ou nao
     authRequest: null,
     authSuccess: ['user'] ,
     authFailure: null

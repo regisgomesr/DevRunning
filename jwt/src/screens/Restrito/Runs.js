@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ActionCreators from '../../redux/actionCreators'
 import { connect } from 'react-redux'
+import { Table, Button } from 'semantic-ui-react'
 
 class Runs extends Component{
     componentDidMount(){
@@ -9,20 +10,20 @@ class Runs extends Component{
 
     renderRun(run) {
         return(
-            <tr>
-                <td>
+            <Table.Row>
+                <Table.Cell>
                   {run.friendly_name}      
-                </td>
-                <td>
+                </Table.Cell>
+                <Table.Cell>
                   {run.duration}      
-                </td>
-                <td>
+                </Table.Cell>
+                <Table.Cell>
                   {run.distance}      
-                </td>
-                <td>
+                </Table.Cell>
+                <Table.Cell>
                   {run.created}      
-                </td>
-            </tr>
+                </Table.Cell>
+            </Table.Row>
         )
     }
 
@@ -37,11 +38,19 @@ class Runs extends Component{
 
         return (
             <div>
-                <h1>Runs</h1>
-                <button onClick={() => this.props.create(run)}>Create Run</button>
-                <table>
-                    { this.props.runs.data.map(this.renderRun) }
-                </table>
+                <h1>Corridas</h1>
+                <Button onClick={() => this.props.create(run)}>Criar corrida</Button>
+                <Table celled>
+                    <Table.Header>
+                        <Table.HeaderCell>Nome</Table.HeaderCell>
+                        <Table.HeaderCell>Duração</Table.HeaderCell>
+                        <Table.HeaderCell>Distância</Table.HeaderCell>
+                        <Table.HeaderCell>Data</Table.HeaderCell>
+                    </Table.Header>
+                    <Table.Body>
+                        { this.props.runs.data.map(this.renderRun) }
+                    </Table.Body>
+                </Table>
             </div>
         )
     }

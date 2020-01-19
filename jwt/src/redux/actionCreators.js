@@ -12,6 +12,14 @@ export const {
     // Verificando se usuario esta autenticado ou nao
     authRequest: null,
     authSuccess: ['user'] ,
-    authFailure: null
+    authFailure: null,
+
+    getRunsRequest: null,
+    getRunsSuccess: ['runs'],
+    getRunsFailure: null,
+
+    createRunRequest: ['run'], // 'friendly_name', 'duration', 'distance', 'created'
+    createRunSuccess: ['run'],
+    createRunFailure: ['error']
 })
 export default Creators

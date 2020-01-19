@@ -20,7 +20,6 @@ const Admin = props => {
             <h1>Admin</h1>
 
             <p>
-                {JSON.stringify(props.auth)}
                 <Link to='/admin' >Home Admin</Link>
                 <Link to='/admin/users' >Users Admin</Link>
             </p>

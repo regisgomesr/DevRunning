@@ -22,7 +22,8 @@ export const signinSuccess = (state = INITIAL_STATE, action) => {
     return {
         ...state,
         isAuth: true,
-        user: action.user
+        user: action.user,
+        error: false
     }
 }
 export const signinFailure = (state = INITIAL_STATE, action) => {
@@ -46,7 +47,8 @@ export const authSuccess = (state = INITIAL_STATE, action) => {
     return {
         ...state,
         isAuth: true,
-        user: action.user
+        user: action.user,
+        error: false
     }
 }
 export const authFailure = (state = INITIAL_STATE, action) => {
@@ -64,7 +66,8 @@ export const destroyAuthSuccess = (state = INITIAL_STATE, action) => {
         ...state,
         isAuth: false,
         user: {},
-        isSigningin: false
+        isSigningin: false,
+        error: false
     }
 }
 

@@ -3,6 +3,12 @@ import ActionCreators from '../../redux/actionCreators'
 import { connect } from 'react-redux'
 import { Table, Button } from 'semantic-ui-react'
 
+import Distance from '../elements/Distance'
+import Duration from '../elements/Duration'
+
+
+
+
 class Runs extends Component{
     componentDidMount(){
         this.props.load()
@@ -15,10 +21,10 @@ class Runs extends Component{
                   {run.friendly_name}      
                 </Table.Cell>
                 <Table.Cell>
-                  {run.duration}      
+                  <Duration duration={run.duration} />   
                 </Table.Cell>
                 <Table.Cell>
-                  {run.distance}      
+                  <Distance distance={run.distance} metric={'miles'} />
                 </Table.Cell>
                 <Table.Cell>
                   {run.created}      
@@ -30,10 +36,10 @@ class Runs extends Component{
     render(){
 
         const run = {
-            friendly_name: 'Run de Domingo Ze', 
-            duration: '00:25:00', 
-            distance: 3000, 
-            created: '2020-01-19 09:30:00'
+            friendly_name: 'Corrida de terça', 
+            duration: 300, 
+            distance: 5000, 
+            created: '2020-01-21 13:00:00'
         }
 
         return (

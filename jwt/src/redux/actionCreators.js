@@ -23,6 +23,10 @@ export const {
 
     createRunRequest: ['run'], // 'friendly_name', 'duration', 'distance', 'created'
     createRunSuccess: ['run'],
-    createRunFailure: ['error']
+    createRunFailure: ['error'],
+
+    updateProfileRequest: ['user'],
+    updateProfileSuccess: ['user'],
+    updateProfileError: ['error']
 })
 export default Creators

@@ -6,6 +6,7 @@ export const INITIAL_STATE = {
     isAuthing: false,
     isAuth: false,
     isSigningin: false,
+    isSaving: false,
     user: {},
     error: false,
     errorMessage: ''
@@ -47,6 +48,7 @@ export const authSuccess = (state = INITIAL_STATE, action) => {
     return {
         ...state,
         isAuth: true,
+        isSigningin: false,
         user: action.user,
         error: false
     }
@@ -58,6 +60,39 @@ export const authFailure = (state = INITIAL_STATE, action) => {
         error: true,
         errorMessage: action.error,
         isAuth: false
+    }
+}
+
+export const updateProfileRequest = (state = INITIAL_STATE, action) => {
+    return {
+        ...state,
+        isSaving: true,
+        error: false,
+        errorMessage: ''
+    }
+}
+export const updateProfileSuccess = (state = INITIAL_STATE, action) => {
+
+    const newUser = {
+        ...state.user
+    }
+    Object.keys(action.user).forEach(key => {
+        newUser[key] = action.user[key]
+    })
+    console.log(newUser)
+    return {
+        ...state,
+        isSaving: false,
+        user: newUser,
+        error: false
+    }
+}
+export const updateProfileFailure = (state = INITIAL_STATE, action) => {
+    return {
+        ...state,
+        isSaving: false,
+        error: true,
+        errorMessage: action.error
     }
 }
 
@@ -79,6 +114,10 @@ export const HANDLERS = {
     [Types.AUTH_REQUEST]: authRequest,
     [Types.AUTH_SUCCESS]: authSuccess,
     [Types.AUTH_FAILURE]: authFailure,
+
+    [Types.UPDATE_PROFILE_REQUEST]: updateProfileRequest,
+    [Types.UPDATE_PROFILE_SUCCESS]: updateProfileSuccess,
+    [Types.UPDATE_PROFILE_ERROR]: updateProfileFailure,
 
     [Types.DESTROY_AUTH_SUCCESS]: destroyAuthSuccess
 }

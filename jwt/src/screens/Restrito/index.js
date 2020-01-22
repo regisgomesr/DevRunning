@@ -3,9 +3,15 @@ import { connect } from 'react-redux'
 import { Redirect, Route } from 'react-router-dom'
 import Home from './Home'
 import Runs from './Runs'
+import MyAccount from './MyAccount'
 import Header from './elements/Header'
 
 const Restrito = props => {
+    console.log(props.auth)
+    
+    if(props.auth.isSigningin){
+        return <p>Loading...</p>
+    }
 
     if(!props.auth.isAuth){
         return <Redirect to='/login' />
@@ -15,6 +21,7 @@ const Restrito = props => {
             <Header />
             <Route path={`${props.match.path}/`} exact component={Home} />
             <Route path={`${props.match.path}/runs`} component={Runs} />
+            <Route path={`${props.match.path}/my-account`} component={MyAccount} />
         </div>
     )
 }

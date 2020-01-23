@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { Form, Button } from 'semantic-ui-react'
 
+import HeaderLogin from '../HeaderLogin'
+
 class Login extends Component {
 
     state = {
@@ -39,6 +41,8 @@ class Login extends Component {
         
         return(
             <div>
+                <HeaderLogin />
+
                 <h1>Entrar</h1>
                 <Form>
                     <Form.Field>

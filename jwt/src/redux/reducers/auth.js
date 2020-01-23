@@ -7,6 +7,7 @@ export const INITIAL_STATE = {
     isAuth: false,
     isSigningin: false,
     isSaving: false,
+    saved: false,
     user: {},
     error: false,
     errorMessage: ''
@@ -23,6 +24,7 @@ export const signinSuccess = (state = INITIAL_STATE, action) => {
     return {
         ...state,
         isAuth: true,
+        isSigningin: false,
         user: action.user,
         error: false
     }
@@ -68,7 +70,8 @@ export const updateProfileRequest = (state = INITIAL_STATE, action) => {
         ...state,
         isSaving: true,
         error: false,
-        errorMessage: ''
+        errorMessage: '',
+        saved: false
     }
 }
 export const updateProfileSuccess = (state = INITIAL_STATE, action) => {
@@ -83,6 +86,7 @@ export const updateProfileSuccess = (state = INITIAL_STATE, action) => {
     return {
         ...state,
         isSaving: false,
+        saved: true,
         user: newUser,
         error: false
     }
@@ -91,8 +95,17 @@ export const updateProfileFailure = (state = INITIAL_STATE, action) => {
     return {
         ...state,
         isSaving: false,
+        saved: false,
         error: true,
         errorMessage: action.error
+    }
+}
+
+export const updateProfileReset = (state = INITIAL_STATE, action) => {
+    return {
+        ...state,
+        isSaving: false,
+        saved: false
     }
 }
 
@@ -118,6 +131,8 @@ export const HANDLERS = {
     [Types.UPDATE_PROFILE_REQUEST]: updateProfileRequest,
     [Types.UPDATE_PROFILE_SUCCESS]: updateProfileSuccess,
     [Types.UPDATE_PROFILE_ERROR]: updateProfileFailure,
+
+    [Types.UPDATE_PROFILE_RESET]: updateProfileReset,
 
     [Types.DESTROY_AUTH_SUCCESS]: destroyAuthSuccess
 }

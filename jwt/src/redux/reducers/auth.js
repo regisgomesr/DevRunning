@@ -60,8 +60,8 @@ export const authFailure = (state = INITIAL_STATE, action) => {
         ...state,
         isSigningin: false,
         error: true,
-        errorMessage: action.error,
-        isAuth: false
+        //errorMessage: action.error,
+        //isAuth: false
     }
 }
 
@@ -109,6 +109,52 @@ export const updateProfileReset = (state = INITIAL_STATE, action) => {
     }
 }
 
+export const createProfileRequest = (state = INITIAL_STATE, action) => {
+    return {
+        ...state,
+        isSaving: true,
+        error: false,
+        errorMessage: '',
+        saved: false
+    }
+}
+
+export const createProfileSuccess = (state = INITIAL_STATE, action) => {
+    const newUser = {
+        ...state.user
+    }
+    Object.keys(action.user).forEach(key => {
+        newUser[key] = action.user[key]
+    })
+    console.log(newUser)
+    return {
+        ...state,
+        isSaving: false,
+        saved: true,
+        user: newUser,
+        error: false
+    }
+}
+
+export const createProfileFailure = (state = INITIAL_STATE, action) => {
+    return {
+        ...state,
+        isSaving: false,
+        saved: false,
+        error: true,
+        errorMessage: action.error
+    }
+}
+
+export const createProfileReset = (state = INITIAL_STATE, action) => {
+    return {
+        ...state,
+        isSaving: false,
+        saved: false,
+        error: false
+    }
+}
+
 export const destroyAuthSuccess = (state = INITIAL_STATE, action) => {
     return {
         ...state,
@@ -118,6 +164,8 @@ export const destroyAuthSuccess = (state = INITIAL_STATE, action) => {
         error: false
     }
 }
+
+
 
 export const HANDLERS = {
     [Types.SIGNIN_REQUEST]: signinRequest,
@@ -130,9 +178,13 @@ export const HANDLERS = {
 
     [Types.UPDATE_PROFILE_REQUEST]: updateProfileRequest,
     [Types.UPDATE_PROFILE_SUCCESS]: updateProfileSuccess,
-    [Types.UPDATE_PROFILE_ERROR]: updateProfileFailure,
-
+    [Types.UPDATE_PROFILE_FAILURE]: updateProfileFailure,
     [Types.UPDATE_PROFILE_RESET]: updateProfileReset,
+
+    [Types.CREATE_PROFILE_REQUEST]: createProfileRequest,
+    [Types.CREATE_PROFILE_SUCCESS]: createProfileSuccess,
+    [Types.CREATE_PROFILE_FAILURE]: createProfileFailure,
+    [Types.CREATE_PROFILE_RESET]: createProfileReset,
 
     [Types.DESTROY_AUTH_SUCCESS]: destroyAuthSuccess
 }

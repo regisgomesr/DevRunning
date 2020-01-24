@@ -49,8 +49,8 @@ class MyAccount extends Component{
                         <Form.Field>
                             <label>Unidade de Comprimento</label>
                             <select value={this.state.unit} onChange={this.handleChange('unit')}>
-                                <option value='metric'>Métrico (Km)</option>
-                                <option value='imperial'>Imperial (mi)</option>
+                                <option value='metric'>Quilômetros(Km)</option>
+                                <option value='imperial'>Milhas(mi)</option>
                             </select>
                         </Form.Field>
 

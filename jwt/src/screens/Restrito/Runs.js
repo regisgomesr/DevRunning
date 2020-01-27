@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ActionCreators from '../../redux/actionCreators'
 import { connect } from 'react-redux'
 import { Table, Button } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 import Distance from '../elements/Distance'
 import Duration from '../elements/Duration'
@@ -46,7 +47,7 @@ class Runs extends Component{
         return (
             <div>
                 <h1>Corridas</h1>
-                <Button onClick={() => this.props.create(run)}>Criar corrida</Button>
+                <Button as={Link} to='/restrito/create-run' >Criar corrida</Button>
                 <Table celled>
                     <Table.Header>
                         <Table.HeaderCell>Nome</Table.HeaderCell>

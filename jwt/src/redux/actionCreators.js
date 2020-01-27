@@ -24,6 +24,7 @@ export const {
     createRunRequest: ['run'],
     createRunSuccess: ['run'],
     createRunFailure: ['error'],
+    createRunReset: null,
 
     updateProfileRequest: ['user'],
     updateProfileSuccess: ['user'],

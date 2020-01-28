@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ActionCreators from '../../redux/actionCreators'
 import { connect } from 'react-redux'
-import { Table, Button, Segment } from 'semantic-ui-react'
+import { Table, Button, Segment, Label } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 import Distance from '../elements/Distance'
@@ -16,10 +16,12 @@ class Runs extends Component{
     }
 
     renderRun = (run) => {
+        console.log(run)
         return(
             <Table.Row key={run.id}>
                 <Table.Cell>
-                  {run.friendly_name}      
+                  {run.friendly_name}<br/>
+                  <Label>{run.name}</Label>
                 </Table.Cell>
                 <Table.Cell>
                   <Duration duration={run.duration} />   
@@ -83,7 +85,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        load: () => dispatch(ActionCreators.getRunsRequest(false)),
+        load: () => dispatch(ActionCreators.getRunsRequest(true)),
         create: (run) => dispatch(ActionCreators.createRunRequest(run)),
         remove: id => dispatch(ActionCreators.removeRunRequest(id))
     }

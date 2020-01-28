@@ -17,7 +17,7 @@ export const {
     destroyAuthRequest: null,
     destroyAuthSuccess: null,
 
-    getRunsRequest: null,
+    getRunsRequest: ['admin'],
     getRunsSuccess: ['runs'],
     getRunsFailure: null,
 

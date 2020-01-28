@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import ActionCreators from '../../redux/actionCreators'
 import { connect } from 'react-redux'
-import { Table, Button } from 'semantic-ui-react'
+import { Table, Button, Segment } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 import Distance from '../elements/Distance'
 import Duration from '../elements/Duration'
 import DateStr from '../elements/DateStr'
-
 
 
 class Runs extends Component{
@@ -31,6 +30,9 @@ class Runs extends Component{
                 <Table.Cell>
                   <DateStr data={run.created} timezone={this.props.auth.user.timezone} />
                 </Table.Cell>
+                <Table.Cell>
+                <Button basic color='red' onClick={() => this.props.remove(run.id)}>Remover</Button>
+                </Table.Cell>
             </Table.Row>
         )
     }
@@ -48,17 +50,30 @@ class Runs extends Component{
             <div>
                 <h1>Corridas</h1>
                 <Button as={Link} to='/restrito/create-run' >Criar corrida</Button>
-                <Table celled>
-                    <Table.Header>
-                        <Table.HeaderCell>Nome</Table.HeaderCell>
-                        <Table.HeaderCell>Duração</Table.HeaderCell>
-                        <Table.HeaderCell>Distância</Table.HeaderCell>
-                        <Table.HeaderCell>Data</Table.HeaderCell>
-                    </Table.Header>
-                    <Table.Body>
-                        { this.props.runs.data.map(this.renderRun) }
-                    </Table.Body>
-                </Table>
+                
+                { this.props.runs.isLoading && <p>Carregando...</p> }
+
+                {
+                    !this.props.runs.isLoading && this.props.runs.data.length === 0 &&
+                        <Segment color='blue'>Nenhuma Corrida Cadastrada!</Segment>
+                }
+
+                {
+                    !this.props.runs.isLoading && this.props.runs.data.length > 0 && 
+                
+                    <Table celled>
+                        <Table.Header>
+                            <Table.HeaderCell>Nome</Table.HeaderCell>
+                            <Table.HeaderCell>Duração</Table.HeaderCell>
+                            <Table.HeaderCell>Distância</Table.HeaderCell>
+                            <Table.HeaderCell>Data</Table.HeaderCell>
+                            <Table.HeaderCell>Ações</Table.HeaderCell>
+                        </Table.Header>
+                        <Table.Body>
+                            { this.props.runs.data.map(this.renderRun) }
+                        </Table.Body>
+                    </Table>
+                }
             </div>
         )
     }
@@ -74,7 +89,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         load: () => dispatch(ActionCreators.getRunsRequest()),
-        create: (run) => dispatch(ActionCreators.createRunRequest(run))
+        create: (run) => dispatch(ActionCreators.createRunRequest(run)),
+        remove: id => dispatch(ActionCreators.removeRunRequest(id))
     }
 }
 

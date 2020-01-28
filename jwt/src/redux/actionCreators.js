@@ -30,6 +30,14 @@ export const {
     removeRunSuccess: ['id'],
     removeRunFailure: ['error'],
 
+    getUsersRequest: null,
+    getUsersSuccess: ['users'],
+    getUsersFailure: null,
+
+    removeUserRequest: null,
+    removeUserSuccess: ['user'],
+    removeUserFailure: ['error'],
+
     updateProfileRequest: ['user'],
     updateProfileSuccess: ['user'],
     updateProfileFailure: ['error'],

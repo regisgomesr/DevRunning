@@ -4,9 +4,9 @@ import { connect } from 'react-redux'
 
 import Header from './elements/Header'
 import Runs from './Runs'
+import Users from './Users'
 
 const Home = props => <h1>Home Admin</h1>
-const Users = props => <h1>Users Admin</h1>
 
 const Admin = props => {
 
@@ -30,7 +30,8 @@ const Admin = props => {
 
 const mapStateToProps = state => {
     return {
-        auth: state.auth
+        auth: state.auth,
+        user: state.user
     }
 }
 

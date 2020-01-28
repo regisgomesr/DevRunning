@@ -24,7 +24,7 @@ export function* createRun(action) {
 
 export function* removeRun(action) {
     const token = localStorage.getItem('token')
-    const runs = yield axios.delete(`http://localhost:3001/runs/${action.id}`, {
+    yield axios.delete(`http://localhost:3001/runs/${action.id}`, {
         headers: {
             Authorization: 'Bearer '+token
         }

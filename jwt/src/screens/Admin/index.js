@@ -1,8 +1,7 @@
 import React from 'react'
-import { Route, Link, Redirect } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { Menu } from 'semantic-ui-react'
 import Header from './elements/Header'
 
 const Home = props => <h1>Home Admin</h1>

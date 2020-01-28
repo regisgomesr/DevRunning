@@ -17,7 +17,7 @@ class Runs extends Component{
 
     renderRun = (run) => {
         return(
-            <Table.Row>
+            <Table.Row key={run.id}>
                 <Table.Cell>
                   {run.friendly_name}      
                 </Table.Cell>
@@ -39,13 +39,6 @@ class Runs extends Component{
 
     render(){
 
-        const run = {
-            friendly_name: 'Corrida de terça', 
-            duration: 300, 
-            distance: 5000, 
-            created: '2020-01-21 13:00:00'
-        }
-
         return (
             <div>
                 <h1>Corridas</h1>
@@ -63,11 +56,13 @@ class Runs extends Component{
                 
                     <Table celled>
                         <Table.Header>
-                            <Table.HeaderCell>Nome</Table.HeaderCell>
-                            <Table.HeaderCell>Duração</Table.HeaderCell>
-                            <Table.HeaderCell>Distância</Table.HeaderCell>
-                            <Table.HeaderCell>Data</Table.HeaderCell>
-                            <Table.HeaderCell>Ações</Table.HeaderCell>
+                            <Table.Row>
+                                <Table.HeaderCell>Nome</Table.HeaderCell>
+                                <Table.HeaderCell>Duração</Table.HeaderCell>
+                                <Table.HeaderCell>Distância</Table.HeaderCell>
+                                <Table.HeaderCell>Data</Table.HeaderCell>
+                                <Table.HeaderCell>Ações</Table.HeaderCell>
+                            </Table.Row>
                         </Table.Header>
                         <Table.Body>
                             { this.props.runs.data.map(this.renderRun) }

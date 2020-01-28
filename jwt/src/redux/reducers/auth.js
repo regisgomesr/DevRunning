@@ -113,8 +113,6 @@ export const createProfileRequest = (state = INITIAL_STATE, action) => {
     return {
         ...state,
         isSaving: true,
-        error: false,
-        errorMessage: '',
         saved: false
     }
 }

@@ -32,12 +32,6 @@ class CreateAccount extends Component{
 
     handleSave = () => {
 
-        if(this.props.auth.error) {
-            this.setState({
-                error: 'exist'
-            })
-        }
-
         if(this.state.passwd !== this.state.passwd2) {
             this.setState({
                 error: 'equal'
@@ -46,7 +40,7 @@ class CreateAccount extends Component{
             this.setState({
                 error: 'length'
             })
-        } {
+        }else
             this.setState({
                 error: ''
             })
@@ -56,9 +50,8 @@ class CreateAccount extends Component{
                 passwd: this.state.passwd,
                 unit: this.state.unit,
                 timezone: this.state.timezone
-                //id: this.props.auth.user.id
             })
-        }
+        
 
        
     }
@@ -71,14 +64,13 @@ class CreateAccount extends Component{
 
         return (
             <div>
+            {
+                this.props.auth.error && <Segment color='red'>Erro - E-mail já existe!</Segment>
+            }
                 <Header />
                 <h1>Criar Conta</h1>
-                {JSON.stringify(this.props.auth)}
-                {JSON.stringify(this.state.email)}
-                {JSON.stringify(this.props.auth.error)}
-                {JSON.stringify(this.state.error)}
 
-               
+                {JSON.stringify(this.props.auth)}
 
                 {
                     this.state.error === 'equal' && <Segment color='red'>Erro - Senhas diferentes!</Segment>
@@ -86,10 +78,6 @@ class CreateAccount extends Component{
 
                 {
                     this.state.error === 'length' && <Segment color='red'>Erro - A Senha deve conter no mínimo 6 caracteres!</Segment>
-                }
-
-                {
-                    this.state.error === 'exist' && <Segment color='red'>Erro - E-mail já existe!</Segment>
                 }
 
                 {

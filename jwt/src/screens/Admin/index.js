@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import Header from './elements/Header'
 import Runs from './Runs'
 import Users from './Users'
+import EditUser from './EditUser'
 
 const Home = props => <h1>Home Admin</h1>
 
@@ -22,7 +23,8 @@ const Admin = props => {
         <div>
             <Header />
             <Route path={`${props.match.path}/`} exact component={Home} />
-            <Route path={`${props.match.path}/users`} component={Users} />
+            <Route path={`${props.match.path}/users/:id/edit`} exact component={EditUser} />
+            <Route path={`${props.match.path}/users`} exact component={Users} />
             <Route path={`${props.match.path}/runs`} component={Runs} />
         </div>
     )

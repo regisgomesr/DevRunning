@@ -52,12 +52,16 @@ class EditUser extends Component{
 
     handleSave = () => {
 
-            this.props.save({
-                id: this.props.match.params.id,
-                name: this.state.name,
-                email: this.state.email,
-                role: this.state.role,
-            })
+        this.setState({
+            error: ''
+        })
+
+        this.props.save({
+            id: this.props.match.params.id,
+            name: this.state.name,
+            email: this.state.email,
+            role: this.state.role,
+        })
         
 
        

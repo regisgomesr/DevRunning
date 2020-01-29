@@ -11,7 +11,7 @@ class Users extends Component{
         console.log(this.props.auth)
     }
 
-    renderUsers = (user) => {
+    renderUser = user => {
         console.log(user)
         return(
             <Table.Row key={user.id}>
@@ -57,7 +57,7 @@ class Users extends Component{
                             </Table.Row>
                         </Table.Header>
                         <Table.Body>
-                            { this.props.users.data.map(this.renderUsers) }
+                            { this.props.users.data.map(this.renderUser) }
                         </Table.Body>
                     </Table>
                 }

@@ -38,8 +38,8 @@ export const {
     getUserSuccess: ['user'],
     getUserFailure: null,
 
-    removeUserRequest: null,
-    removeUserSuccess: ['user'],
+    removeUserRequest: ['id'],
+    removeUserSuccess: ['id'],
     removeUserFailure: ['error'],
 
     updateProfileRequest: ['user'],

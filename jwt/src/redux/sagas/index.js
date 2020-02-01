@@ -10,7 +10,11 @@ import Api from '../../service/Api'
 
 export default function* rootSaga() {
 
-    const api = new Api('http://localhost:3001')
+    const devURL = 'http://localhost:3001'
+    const prodURL = 'http://api.devpleno.com'
+    const baseURL = process.env.NODE_ENV === 'development' ? devURL : prodURL
+
+    const api = new Api(baseURL)
 
     yield all([
         takeLatest(Types.SIGNIN_REQUEST, login({ api })),

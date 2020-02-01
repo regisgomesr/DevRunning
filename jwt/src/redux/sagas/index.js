@@ -13,14 +13,14 @@ export default function* rootSaga() {
     const api = new Api('http://localhost:3001')
 
     yield all([
-        takeLatest(Types.SIGNIN_REQUEST, login),
-        takeLatest(Types.AUTH_REQUEST, auth),
+        takeLatest(Types.SIGNIN_REQUEST, login({ api })),
+        takeLatest(Types.AUTH_REQUEST, auth({ api })),
         takeLatest(Types.GET_RUNS_REQUEST, getRuns({ api })),
         takeLatest(Types.CREATE_RUN_REQUEST, createRun({ api })),
         takeLatest(Types.REMOVE_RUN_REQUEST, removeRun({ api })),
-        takeLatest(Types.DESTROY_AUTH_REQUEST, destroyAuth),
-        takeLatest(Types.UPDATE_PROFILE_REQUEST, updateProfile),
-        takeLatest(Types.CREATE_PROFILE_REQUEST, createProfile),
+        takeLatest(Types.DESTROY_AUTH_REQUEST, destroyAuth({ api })),
+        takeLatest(Types.UPDATE_PROFILE_REQUEST, updateProfile({ api })),
+        takeLatest(Types.CREATE_PROFILE_REQUEST, createProfile({ api })),
         takeLatest(Types.GET_USERS_REQUEST, getUsers({ api })),
         takeLatest(Types.GET_USER_REQUEST, getUser({ api })),
         takeLatest(Types.REMOVE_USER_REQUEST, removeUser({ api })),

@@ -94,7 +94,6 @@ export const updateUserSuccess = (state = INITIAL_STATE, action) => {
     Object.keys(action.user).forEach(key => {
         newUser[key] = action.user[key]
     })
-    console.log(newUser)
     return {
         ...state,
         isSaving: false,

@@ -18,10 +18,11 @@ class EditUser extends Component{
         this.props.load(this.props.match.params.id)
     }
 
+    // Estado derivado de props
     // toda vez que o props é mudado esse get é chamado e posso setar outro valor para o state
     static getDerivedStateFromProps(newProps, prevState){
 
-        // Se o usuario existir
+        // Se usuario existir
         if(newProps.users && newProps.users.user) {
             const user = {}
             const newValue = newProps.users.user
@@ -51,20 +52,12 @@ class EditUser extends Component{
     }
 
     handleSave = () => {
-
-        this.setState({
-            error: ''
-        })
-
         this.props.save({
             id: this.props.match.params.id,
             name: this.state.name,
             email: this.state.email,
-            role: this.state.role,
-        })
-        
-
-       
+            role: this.state.role
+        })       
     }
 
     render(){

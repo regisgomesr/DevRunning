@@ -7,7 +7,6 @@ import { put } from 'redux-saga/effects'
 export function* login(action){
 
     let token = localStorage.getItem('token')
-    
     const login = yield axios.post('http://localhost:3001/users/login', {
     email: action.email,
     passwd: action.passwd

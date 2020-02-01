@@ -1,37 +1,24 @@
-import axios from 'axios'
 import ActionCreators from '../actionCreators'
-import { put } from 'redux-saga/effects'
+import { put, call } from 'redux-saga/effects'
 
-export function* getRuns(action) {
-    const token = localStorage.getItem('token')
+export const getRuns = ({ api }) => function* (action) {
+    
     let filter = ''
     if(action.admin){
         filter = '?admin=true'
     }
-    const runs = yield axios.get(`http://localhost:3001/runs${filter}`, {
-        headers: {
-            Authorization: 'Bearer '+token
-        }
-    })
+    const runs = yield call(api.getRuns, filter)
     yield put(ActionCreators.getRunsSuccess(runs.data.data))
 }
 
-export function* createRun(action) {
-    const token = localStorage.getItem('token')
-    const runs = yield axios.post('http://localhost:3001/runs', action.run, {
-        headers: {
-            Authorization: 'Bearer '+token
-        }
-    })
-    yield put(ActionCreators.createRunSuccess(runs.data))
+export const createRun = ({ api }) => function* (action) {
+    
+    const run = yield call(api.createRun, action.run)
+    yield put(ActionCreators.createRunSuccess(run.data))
 }
 
-export function* removeRun(action) {
-    const token = localStorage.getItem('token')
-    yield axios.delete(`http://localhost:3001/runs/${action.id}`, {
-        headers: {
-            Authorization: 'Bearer '+token
-        }
-    })
+export const removeRun = ({ api }) => function* (action) {
+
+    yield call(api.removeRun, action.id)
     yield put(ActionCreators.removeRunSuccess(action.id))
 }

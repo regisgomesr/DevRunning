@@ -15,9 +15,9 @@ export default function* rootSaga() {
     yield all([
         takeLatest(Types.SIGNIN_REQUEST, login),
         takeLatest(Types.AUTH_REQUEST, auth),
-        takeLatest(Types.GET_RUNS_REQUEST, getRuns),
-        takeLatest(Types.CREATE_RUN_REQUEST, createRun),
-        takeLatest(Types.REMOVE_RUN_REQUEST, removeRun),
+        takeLatest(Types.GET_RUNS_REQUEST, getRuns({ api })),
+        takeLatest(Types.CREATE_RUN_REQUEST, createRun({ api })),
+        takeLatest(Types.REMOVE_RUN_REQUEST, removeRun({ api })),
         takeLatest(Types.DESTROY_AUTH_REQUEST, destroyAuth),
         takeLatest(Types.UPDATE_PROFILE_REQUEST, updateProfile),
         takeLatest(Types.CREATE_PROFILE_REQUEST, createProfile),

@@ -62,6 +62,7 @@ class CreateAccount extends Component{
             return <Redirect to='/restrito' />
         }
 
+        //{JSON.stringify(this.props.auth)}
         return (
             <div>
             {
@@ -69,8 +70,6 @@ class CreateAccount extends Component{
             }
                 <Header />
                 <h1>Criar Conta</h1>
-
-                {JSON.stringify(this.props.auth)}
 
                 {
                     this.state.error === 'equal' && <Segment color='red'>Erro - Senhas diferentes!</Segment>

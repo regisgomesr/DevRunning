@@ -23,7 +23,8 @@ class EditUser extends Component{
     static getDerivedStateFromProps(newProps, prevState){
 
         // Se usuario existir
-        if(newProps.users && newProps.users.user) {
+        if(newProps.users && newProps.users.user  &&
+            (prevState.name === undefined || prevState.name === '')) {
             const user = {}
             const newValue = newProps.users.user
 

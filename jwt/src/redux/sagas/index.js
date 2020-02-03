@@ -22,7 +22,7 @@ export default function* rootSaga() {
         takeLatest(Types.GET_RUNS_REQUEST, getRuns({ api })),
         takeLatest(Types.CREATE_RUN_REQUEST, createRun({ api })),
         takeLatest(Types.REMOVE_RUN_REQUEST, removeRun({ api })),
-        takeLatest(Types.DESTROY_AUTH_REQUEST, destroyAuth({ api })),
+        takeLatest(Types.DESTROY_AUTH_REQUEST, destroyAuth),
         takeLatest(Types.UPDATE_PROFILE_REQUEST, updateProfile({ api })),
         takeLatest(Types.CREATE_PROFILE_REQUEST, createProfile({ api })),
         takeLatest(Types.GET_USERS_REQUEST, getUsers({ api })),

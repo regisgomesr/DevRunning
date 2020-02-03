@@ -7,8 +7,6 @@ const Api = base => {
         baseURL: base
     })
 
-    
-
     const getAuthHeader = () => {
         const token = localStorage.getItem('token')
         return {
@@ -22,7 +20,7 @@ const Api = base => {
     const remove = endpoint => client.delete(endpoint, getAuthHeader())
     const update = (endpoint, data) => client.patch(endpoint, data, getAuthHeader())
     const create = (endpoint, data) => client.post(endpoint, data, getAuthHeader())
-    const login = (endpoint, user) => client.post(endpoint, user)
+    const login = (endpoint, user) => client.post(endpoint, user, getAuthHeader())
 
     return {
         getUser: id => get(`/users/${id}`),
@@ -35,10 +33,7 @@ const Api = base => {
         createRun: data => create(`/runs/`, data),
         removeRun: id => remove(`/runs/${id}`),
 
-        login: user => login(`/users/login`, user),
-        
-        
-
+        login: user => login(`/users/login`, user)
     }
 }
 export default Api

@@ -46,3 +46,7 @@
 
 
 ## 7 - Acesse a aplicação em http://localhost:3000
+
+
+## Licença
+Esse projeto está sob a licença MIT. Veja a página LICENSE para mais detalhes.

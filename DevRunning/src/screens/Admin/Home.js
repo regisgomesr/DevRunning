@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 const Home = props => {
 
     return (
-        <h1>Olá, {props.auth.user.name}.</h1>
+        <h1>Olá, Administrador {props.auth.user.name}.</h1>
     )
 }
 

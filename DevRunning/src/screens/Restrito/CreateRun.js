@@ -85,7 +85,7 @@ class CreateRun extends Component{
                             onChange={(val) => this.setState({ created: val })} />
 
                         <div>
-                            <Button onClick={this.handleSave}>Salvar Corrida</Button>   
+                            <Button inverted color='blue' size='big' onClick={this.handleSave}>Salvar Corrida</Button>   
                         </div>
                     </Form>
                 }

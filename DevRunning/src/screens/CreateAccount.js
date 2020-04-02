@@ -129,7 +129,7 @@ class CreateAccount extends Component{
                             </select>
                         </Form.Field>
 
-                        <Button onClick={this.handleSave}>Criar Conta</Button>   
+                        <Button inverted color='blue' size='big' onClick={this.handleSave}>Criar Conta</Button>   
                     </Form>
                 }
                 

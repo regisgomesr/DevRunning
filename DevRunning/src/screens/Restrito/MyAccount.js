@@ -69,7 +69,7 @@ class MyAccount extends Component{
                             </select>
                         </Form.Field>
 
-                        <Button onClick={this.handleSave}>Salvar</Button>
+                        <Button inverted color='blue' size='big' onClick={this.handleSave}>Salvar</Button>
                         
                     </Form>
                 }

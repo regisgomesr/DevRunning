@@ -96,7 +96,7 @@ class EditUser extends Component{
                             
                         </Form.Field>
 
-                            <Button onClick={this.handleSave}>Editar Usuário</Button>   
+                            <Button inverted color='blue' size='big' onClick={this.handleSave}>Editar Usuário</Button>   
                     </Form>
                 }
             </div>

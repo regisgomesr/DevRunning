@@ -73,7 +73,7 @@ class ChangePass extends Component{
                             <label>Digite Novamente</label>
                             <input type='password' value={this.state.passwd2} onChange={this.handleChange('passwd2')} />
                         </Form.Field>
-                        <Button onClick={this.handleSave}>Salvar Nova Senha</Button>   
+                        <Button inverted color='blue' size='big' onClick={this.handleSave}>Salvar Nova Senha</Button>   
                     </Form>
                 }
                 

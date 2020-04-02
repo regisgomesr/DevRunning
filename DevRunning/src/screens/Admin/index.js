@@ -3,11 +3,11 @@ import { Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import Header from './elements/Header'
+import Home from './Home'
 import Runs from './Runs'
 import Users from './Users'
 import EditUser from './EditUser'
 
-const Home = props => <h1>Home Admin</h1>
 
 const Admin = props => {
 

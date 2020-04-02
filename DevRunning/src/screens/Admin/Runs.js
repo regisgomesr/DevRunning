@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ActionCreators from '../../redux/actionCreators'
 import { connect } from 'react-redux'
-import { Table, Button, Segment, Label } from 'semantic-ui-react'
+import { Table, Button, Segment, Label, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 import Distance from '../elements/Distance'
@@ -33,7 +33,7 @@ class Runs extends Component{
                   <DateStr data={run.created} timezone={this.props.auth.user.timezone} />
                 </Table.Cell>
                 <Table.Cell>
-                <Button basic color='red' onClick={() => this.props.remove(run.id)}>Remover</Button>
+                <Button inverted color='red' onClick={() => this.props.remove(run.id)}>Remover</Button>
                 </Table.Cell>
             </Table.Row>
         )
@@ -44,7 +44,13 @@ class Runs extends Component{
         return (
             <div>
                 <h1>Corridas</h1>
-                <Button as={Link} to='/restrito/create-run' >Criar corrida</Button>
+
+                <Button animated color='green' size='big' as={Link} to='/restrito/create-run'>
+                    <Button.Content visible>Criar corrida</Button.Content>
+                        <Button.Content hidden>
+                        <Icon name='angle double right' />
+                    </Button.Content>
+                </Button>
                 
                 { this.props.runs.isLoading && <p>Carregando...</p> }
 

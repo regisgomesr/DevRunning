@@ -9,6 +9,8 @@ import {
  
 import { Container } from 'semantic-ui-react'
 
+import './global.css'
+
 import Home from './screens/Home'
 import Admin from './screens/Admin'  
 import Restrito from './screens/Restrito'  

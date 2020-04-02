@@ -53,7 +53,7 @@ class Login extends Component {
                         <label>Senha</label>
                         <input type='password' value={this.state.form.passwd} onChange={this.handleChange('passwd')} />
                     </Form.Field>
-                    <Button onClick={this.login}>Logar</Button>
+                    <Button inverted color='blue' size='big' onClick={this.login}>Logar</Button>
 
                     {
                         this.props.auth.error && 

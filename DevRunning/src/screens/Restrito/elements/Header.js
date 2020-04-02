@@ -17,7 +17,7 @@ const Header = props => {
                         <Dropdown.Menu>
                             {
                                 props.auth.user.role === 'admin' &&
-                                <Dropdown.Item as={Link} to='/admin/home'>Modo: Admin</Dropdown.Item>
+                                <Dropdown.Item as={Link} to='/admin'>Modo: Admin</Dropdown.Item>
                             }
                             
                             <Dropdown.Item as={Link} to='/restrito/my-account'>Minha Conta</Dropdown.Item>

@@ -43,7 +43,7 @@ class Login extends Component {
             <div>
                 <HeaderLogin />
 
-                <h1>Entrar</h1>
+                <h1>Login</h1>
                 <Form>
                     <Form.Field>
                         <label>E-mail</label>

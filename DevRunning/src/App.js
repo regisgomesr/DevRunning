@@ -26,13 +26,11 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <Container>
-
             <Route exact path='/' component={Home} />
             <Route path='/admin' component={Admin} />
             <Route path='/restrito' component={Restrito} />
             <Route path='/login' component={Login} />
             <Route path='/create-account' component={CreateAccount} />
-
           </Container>
         </Router>
       </Provider>
@@ -40,4 +38,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App

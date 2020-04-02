@@ -45,7 +45,7 @@ export const updateProfile = ({ api }) => function* (action) {
     const userToSave = {
         ...action.user
     }
-    yield call(api.updateProfile, userToSave)
+    yield call(api.updateUser, userToSave)
     yield put(ActionCreators.updateProfileSuccess(userToSave))   
 }
 
@@ -54,7 +54,7 @@ export const createProfile = ({ api }) => function* (action) {
         ...action.user
     }
 
-    const user = yield call(api.updateUser, userToSave)
+    const user = yield call(api.createUser, userToSave)
     
     if(user && user.data && user.data.error) {
         put(ActionCreators.createProfileFailure(user.data.message))

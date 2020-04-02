@@ -1,4 +1,4 @@
-![DevRunning](https://github.com/regisgomesr/DevRunning/blob/master/DevRunning/public/logo.png)
+![DevRunning](DevRunning/public/logo.png)
 
 
  Aplicação para gerenciar corridas, possui usuários de dois tipos ( admin / usuario ), o administrador pode ( atualizar, listar e deletar os usuários ). O administrador consegui ver todas as corridas de todos os usuários.
